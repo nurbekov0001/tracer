@@ -1,0 +1,129 @@
+[
+{
+  "model": "webapp.status",
+  "pk": 2,
+  "fields": {
+    "name": "New"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 3,
+  "fields": {
+    "name": "In Progress"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 4,
+  "fields": {
+    "name": "Done"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 1,
+  "fields": {
+    "name": "New"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 2,
+  "fields": {
+    "name": "Task"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 3,
+  "fields": {
+    "name": "Bug"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 4,
+  "fields": {
+    "name": "Enhancement"
+  }
+},
+{
+  "model": "webapp.tracer",
+  "pk": 1,
+  "fields": {
+    "surname": "купить машину",
+    "description": "Audi a4 2019 года",
+    "status": 2,
+    "type": 2,
+    "created_at": "2021-03-09T10:29:26.766Z",
+    "updated_at": "2021-03-09T10:29:26.766Z"
+  }
+},
+{
+  "model": "webapp.tracer",
+  "pk": 2,
+  "fields": {
+    "surname": "купить телефон",
+    "description": "samsung s20",
+    "status": 3,
+    "type": 1,
+    "created_at": "2021-03-09T10:30:32.646Z",
+    "updated_at": "2021-03-09T10:30:32.646Z"
+  }
+},
+{
+  "model": "webapp.tracer",
+  "pk": 3,
+  "fields": {
+    "surname": "купить машину",
+    "description": "BMW\r\nГод выпуска2014\r\nПробег90 000 км\r\nКузовседан\r\nЦвет белый\r\nДвигатель4.4 л. / бензин\r\nКоробкаробот\r\nПриводзадний\r\nРульслева\r\nСостояниеидеальное\r\nТаможнярастаможен\r\nОбменрассмотрю варианты\r\nНаличиев наличии\r\nПрочеесвежепригнан",
+    "status": 3,
+    "type": 3,
+    "created_at": "2021-03-09T10:33:38.083Z",
+    "updated_at": "2021-03-09T10:33:38.084Z"
+  }
+},
+{
+  "model": "webapp.tracer",
+  "pk": 4,
+  "fields": {
+    "surname": "купить машину",
+    "description": "Год выпуска1993\r\nПробег113 500 км\r\nКузовседан\r\nЦвет серебристый\r\nДвигатель4.0 л. / бензин\r\nКоробкаавтомат\r\nПриводзадний\r\nРульслева\r\nСостояниеновое\r\nТаможняне растаможен\r\nНаличие\r\nПрочеесвежепригнан, налог уплачен, техосмотр пройден, вложений не требует",
+    "status": 4,
+    "type": 4,
+    "created_at": "2021-03-09T10:34:21.202Z",
+    "updated_at": "2021-03-09T10:34:21.202Z"
+  }
+},
+{
+  "model": "webapp.tracer",
+  "pk": 5,
+  "fields": {
+    "surname": "купить телефон",
+    "description": "Росо С3\r\nНовый смартфон Росо С3, почти ничем не отличается от вышедшего ранее Redmi 9C.\r\nУ двух телефонов много общего: IPS-экран, имеющий диагональ 6,53 дюйма при разрешении HD+, камера 13 Мп, а также емкость аккумулятора в 5000 мАч. Одинакова и однокристальная платформа MediaTek Heilo G35 с частотой 2,3 ГГц, которая поддерживает Wi-Fi 5, Bluetooth 5.0, GPS+ и многое другое.\r\n\r\nОтличаются Росо С3 и Redmi 9C показателем дополнительного блока камеры: 2 и 5 Мп соответственно. Так же у них разное цветовое оформление и память. Новинка имеет 3 (4) Гб оперативной памяти и 32 (64) Гб флеш-памяти.",
+    "status": 2,
+    "type": 2,
+    "created_at": "2021-03-09T10:35:15.973Z",
+    "updated_at": "2021-03-09T10:35:15.974Z"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$OhrVFVMZlo46$m6BOfUzNLzrwY6v4JtZKhXoBT4JbF5JWGo4x4ngw5vM=",
+    "last_login": "2021-03-09T10:14:23.894Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@admin.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-03-09T10:13:41.181Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
