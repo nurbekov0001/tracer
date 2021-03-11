@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block menu %}
+
+    <li><a href="{% url "product_update" product.id %}">Редактировать задачу</a></li>
+    <li><a href="{% url "product_delete" product.id %}">Удалить задачу</a></li>
+{% endblock menu %}
+{% block content %}
+{% block page_header %}Продукт {{ product.id }}{% endblock page_header %}
+    <p> Name product: {{ product.name }}</p>
+    <p>Description: {{ product.description}}</p>
+    <p>Category: {{ product.get_category_display}}</p>
+    <p>Remainder: {{ product.remainder }}</p>
+    <p>Price: {{product.price}} </p>
+    <a href="{% url "product_list" %}">Главная страница</a>
+{% endblock %}

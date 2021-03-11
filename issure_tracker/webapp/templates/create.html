@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block page_header %}Добавить товар{% endblock page_header %}
+
+{% block content %}
+    <form action="{% url "product_add" %}" method="post">
+        {% include "product_form.html" with button_text="Создать продукт" %}
+    </form>
+{% endblock content %}
