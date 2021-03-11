@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block menu %}<li><a href="{% url "product_view" product.id %}">Вернуться к товару</a></li>{% endblock menu %}
-{% block page_header %}Редактирвоать товар {{ product.id }}{% endblock page_header %}
+{% block menu %}<li><a href="{% url "view" tracer.id %}">Вернуться к задаче</a></li>{% endblock menu %}
+{% block page_header %}Редактирвоать задачу {{ tracer.id }}{% endblock page_header %}
 
 {% block content %}
-    <form action="{% url "product_update" product.id %}" method="post">
-        {% include "tracer_form.html" with button_text="Редактировать товар" %}
+    <form action="{% url "update" tracer.id %}" method="post">
+        {% include "tracer_form.html" with button_text="Редактировать задачу" %}
     </form>
 {% endblock content %}

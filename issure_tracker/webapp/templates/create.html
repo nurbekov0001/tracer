@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
-{% block page_header %}Добавить товар{% endblock page_header %}
+{% block page_header %}Добавить задачу{% endblock page_header %}
 
 {% block content %}
-    <form action="{% url "product_add" %}" method="post">
-        {% include "product_form.html" with button_text="Создать продукт" %}
+    <form action="{% url "add" %}" method="post">
+        {% include "tracer_form.html" with button_text="Создать задачу" %}
     </form>
 {% endblock content %}
