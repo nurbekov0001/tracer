@@ -8,7 +8,6 @@
                 Статус: {{ tracer.status }}<br/>
            <p>Тип: {% for type in tracer.type.all %}{{ type.name }}
         {% if not forloop.last %}, {% endif %}{% endfor %}</p>
-
         </p>
         <br/>
         <br/>
