@@ -20,8 +20,10 @@ class Tracer(models.Model):
     description = models.TextField(max_length=2000, null=False, blank=False, verbose_name="Полное описание")
     status = models.ForeignKey('webapp.Status', related_name='tracers', on_delete=models.PROTECT,
                                verbose_name='Статус')
-    type = models.ForeignKey('webapp.Type', related_name='tracers', on_delete=models.PROTECT,
-                             verbose_name='Тип')
+    # type = models.ManyToManyField('webapp.Type', related_name='tracers', on_delete=models.PROTECT,
+    #                               verbose_name='Тип')
+    type = models.ManyToManyField('webapp.Type', related_name='tracers',
+                                  verbose_name='Тип')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Время изменения')
 

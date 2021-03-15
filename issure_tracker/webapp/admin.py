@@ -3,9 +3,9 @@ from webapp.models import Tracer, Status, Type
 
 
 class TracersAdmin(admin.ModelAdmin):
-    list_display = ['id', 'surname', 'description', 'status', 'type']
-    list_filter = ['status', 'type']
-    fields = ['surname', 'description', 'status', 'type']
+    list_display = ['id', 'surname', 'description', 'status']
+    list_filter = ['status']
+    fields = ['surname', 'description', 'status']
 
 
 admin.site.register(Tracer, TracersAdmin)

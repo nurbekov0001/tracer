@@ -36,8 +36,9 @@ class CreateView(View):
                 surname=form.cleaned_data.get("surname"),
                 description=form.cleaned_data.get("description"),
                 status=form.cleaned_data.get("status"),
-                type=form.cleaned_data.get("type"),
+
             )
+            tracer.type.set(form.cleaned_data.get("type"))
             return redirect('view', pk=tracer.id)
         return render(request, 'create.html', context={'form': form})
 

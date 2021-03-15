@@ -10,6 +10,6 @@
     <p> Name tracer: {{ tracer.surname }}</p>
     <p>Description: {{ tracer.description}}</p>
     <p>Status: {{ tracer.status}}</p>
-        <p>Type: {{ tracer.type}}</p>
+        <p>Type: {{ tracer.type.all}}</p>
     <a href="{% url "list" %}">Главная страница</a>
 {% endblock %}
