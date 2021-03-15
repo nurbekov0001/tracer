@@ -5,8 +5,9 @@
     {% for tracer in tracers %}
             <p><a href="{% url "view" tracer.id %}"> Название: {{ tracer.surname }}</a><br/>
                 Описание:{{tracer.description  }}<br/>
-            Статус: {{ tracer.status }}<br/>
-            Тип: {{ tracer.type }}<br/>
+                Статус: {{ tracer.status }}<br/>
+           <p>Тип: {% for type in tracer.type.all %}{{ type.name }}
+        {% if not forloop.last %}, {% endif %}{% endfor %}</p>
 
         </p>
         <br/>

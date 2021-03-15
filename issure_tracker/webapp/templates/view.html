@@ -10,6 +10,7 @@
     <p> Name tracer: {{ tracer.surname }}</p>
     <p>Description: {{ tracer.description}}</p>
     <p>Status: {{ tracer.status}}</p>
-        <p>Type: {{ tracer.type.all}}</p>
+    <p>Tип: {% for type in tracer.type.all %}{{ type.name }}
+        {% if not forloop.last %}, {% endif %}{% endfor %}</p>
     <a href="{% url "list" %}">Главная страница</a>
 {% endblock %}

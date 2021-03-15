@@ -36,7 +36,6 @@ class CreateView(View):
                 surname=form.cleaned_data.get("surname"),
                 description=form.cleaned_data.get("description"),
                 status=form.cleaned_data.get("status"),
-
             )
             tracer.type.set(form.cleaned_data.get("type"))
             return redirect('view', pk=tracer.id)
@@ -50,7 +49,7 @@ class UpdateView(View):
             'surname': tracer.surname,
             'description': tracer.description,
             'status': tracer.status,
-            'type': tracer.type,
+            'type': tracer.type.all(),
 
         })
         return render(request, 'update.html', context={'form': form, 'tracer': tracer})
@@ -61,8 +60,8 @@ class UpdateView(View):
         if form.is_valid():
             tracer.surname = form.cleaned_data.get("surname")
             tracer.description = form.cleaned_data.get("description")
-            tracer.category = form.cleaned_data.get("status")
-            tracer.remainder = form.cleaned_data.get("type")
+            tracer.status = form.cleaned_data.get("status")
+            tracer.type.set(form.cleaned_data.get("type"))
             tracer.save()
             return redirect('view', pk=tracer.id)
         return render(request, 'update.html', context={'form': form, 'tracer': tracer})
