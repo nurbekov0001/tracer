@@ -1,4 +1,5 @@
 from django.db import models
+from webapp.validator import ErrorValidator, Validator
 
 
 class Status(models.Model):
@@ -16,8 +17,10 @@ class Type(models.Model):
 
 
 class Tracer(models.Model):
-    surname = models.CharField(max_length=100, null=False, blank=False, verbose_name="Краткое описание")
-    description = models.TextField(max_length=2000, null=False, blank=False, verbose_name="Полное описание")
+    surname = models.CharField(max_length=100, null=False, blank=False, verbose_name="Краткое описание",
+                               validators=(ErrorValidator(10),))
+    description = models.TextField(max_length=2000, null=True, blank=True, verbose_name="Полное описание",
+                                   validators=(Validator(['%', '@', '&']),))
     status = models.ForeignKey('webapp.Status', related_name='tracers', on_delete=models.PROTECT,
                                verbose_name='Статус')
     type = models.ManyToManyField('webapp.Type', related_name='tracers',
