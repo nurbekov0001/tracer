@@ -18,7 +18,7 @@ class Type(models.Model):
 
 class Tracer(models.Model):
     surname = models.CharField(max_length=100, null=False, blank=False, verbose_name="Краткое описание",
-                               validators=(ErrorValidator(10),))
+                               validators=(ErrorValidator(5),))
     description = models.TextField(max_length=2000, null=True, blank=True, verbose_name="Полное описание",
                                    validators=(Validator(['%', '@', '&']),))
     status = models.ForeignKey('webapp.Status', related_name='tracers', on_delete=models.PROTECT,
@@ -34,4 +34,4 @@ class Tracer(models.Model):
         verbose_name_plural = 'задачи'
 
     def __str__(self):
-        return f'{self.id}. {self.surname}:{self.description}{self.status} {self.type}'
+        return f'{self.id}. {self.surname}:{self.description}{self.status} {self.type}  '

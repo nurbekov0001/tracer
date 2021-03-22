@@ -22,7 +22,6 @@ class Validator(BaseValidator):
     def compare(self, a, b):
         for i in a:
             if i in b:
-                print(b)
                 return True
         return False
 

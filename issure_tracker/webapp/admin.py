@@ -3,7 +3,7 @@ from webapp.models import Tracer, Status, Type
 
 
 class TracersAdmin(admin.ModelAdmin):
-    list_display = ['id', 'surname', 'description', 'status']
+    list_display = ['id', 'surname', 'description', 'status', 'created_at', 'updated_at']
     list_filter = ['status']
     fields = ['surname', 'description', 'status']
 
