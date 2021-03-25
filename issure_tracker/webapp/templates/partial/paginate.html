@@ -1,7 +1,7 @@
 <div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
-            <a href="?{% if query %}{{ query }}&{% endif %}page=1">&laquo; В начало &raquo; </a> &nbsp;
+            <a href="?{% if query %}{{ query }}&{% endif %}page=1">&laquo; В начал &raquo; </a> &nbsp;
             <a href="?{% if query %}{{ query }}&{% endif %}page={{ page_obj.previous_page_number }}"> &nbsp;&laquo;
                 Назад &raquo;</a>
         {% else %}
