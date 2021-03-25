@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
+
+    <h1>Tracer list</h1><br/>
     {% if not tracers %}
         <h2>НЕТ ЗАДАЧ</h2>
     {% else %}
         {% include "partial/search_form.html" %}
     {% endif %}
+<br/><br/>
 
-
-    <h1>Tracer list</h1><br/>
     {% for tracer in tracers %}
             <p><a href="{% url "view" tracer.id %}"> Название: {{ tracer.surname }}</a><br/>
                 Описание: {{tracer.description  }}<br/>
