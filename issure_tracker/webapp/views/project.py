@@ -12,7 +12,7 @@ class ProjectIndexView(ListView):
     model = Project
     context_object_name = 'projects'
     ordering = ('name', '-start_data')
-    paginate_by = 10
+    paginate_by = 5
     paginate_orphans = 1
 
     def get(self, request, **kwargs):
@@ -50,6 +50,7 @@ class ProjectCreateView(CreateView):
     template_name = 'tracer/create.html'
     model = Project
     form_class = ProjectForm
+
 
     def get_success_url(self):
 

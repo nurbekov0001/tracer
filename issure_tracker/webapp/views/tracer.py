@@ -15,7 +15,7 @@ class IndexView(ListView):
     model = Tracer
     context_object_name = 'tracers'
     ordering = ('surname', '-created_at')
-    paginate_by = 10
+    paginate_by = 5
     paginate_orphans = 1
 
     def get(self, request, **kwargs):
