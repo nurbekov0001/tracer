@@ -40,10 +40,11 @@ class Tracer(models.Model):
 
 class Project(models.Model):
 
-    start_data = models.DateField(auto_now_add=False, verbose_name='Дата начала')
-    end_data = models.DateField(auto_now_add=False, null=True, blank=True, verbose_name='Дата окончания')
     name = models.CharField(max_length=100, null=False, blank=False, verbose_name='название')
     description = models.TextField(max_length=2000,  null=False, blank=False, verbose_name='описание')
+    start_data = models.DateField(auto_now_add=False, verbose_name='Дата начала')
+    end_data = models.DateField(auto_now_add=False, null=True, blank=True, verbose_name='Дата окончания')
+
 
     def __str__(self):
-        return f'{self.id}. {self.start_data}:{self.end_data} {self.name} {self.description}  '
+        return f'{self.id}.{self.name} {self.description} {self.start_data}:{self.end_data} '

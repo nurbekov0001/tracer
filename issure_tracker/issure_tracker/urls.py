@@ -16,12 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
-HOMEPAGE_URL = 'tracer/'
+HOMEPAGE_URL = 'project/'
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tracer/', include('webapp.urls')),
-    path('', RedirectView.as_view(url=HOMEPAGE_URL, permanent=True)),
+    path('project/', include('webapp.urls')),
+    path('', RedirectView.as_view(url=HOMEPAGE_URL, permanent=False)),
 
 ]
