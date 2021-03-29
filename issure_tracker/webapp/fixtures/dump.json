@@ -53,10 +53,11 @@
   "pk": 1,
   "fields": {
     "surname": "buy a car",
-    "description": "Audi a4 2018 года",
+    "description": "Audi a4 2018 год",
     "status": 3,
     "created_at": "2021-03-09T10:29:26.766Z",
-    "updated_at": "2021-03-22T07:47:04.041Z",
+    "updated_at": "2021-03-29T09:47:08.272Z",
+    "project": 1,
     "type": [
       2
     ]
@@ -67,10 +68,11 @@
   "pk": 2,
   "fields": {
     "surname": "купить телефон",
-    "description": "samsung s20",
+    "description": "samsung s20s",
     "status": 4,
     "created_at": "2021-03-09T10:30:32.646Z",
-    "updated_at": "2021-03-22T08:36:30.883Z",
+    "updated_at": "2021-03-29T09:22:24.147Z",
+    "project": 1,
     "type": [
       3
     ]
@@ -85,6 +87,7 @@
     "status": 4,
     "created_at": "2021-03-09T10:34:21.202Z",
     "updated_at": "2021-03-15T10:26:20.244Z",
+    "project": 1,
     "type": [
       1
     ]
@@ -99,6 +102,7 @@
     "status": 2,
     "created_at": "2021-03-09T10:35:15.973Z",
     "updated_at": "2021-03-15T10:26:28.844Z",
+    "project": 1,
     "type": [
       2
     ]
@@ -113,6 +117,7 @@
     "status": 2,
     "created_at": "2021-03-15T10:40:16.347Z",
     "updated_at": "2021-03-22T07:58:21.771Z",
+    "project": 1,
     "type": [
       2,
       3,
@@ -129,6 +134,7 @@
     "status": 4,
     "created_at": "2021-03-17T11:21:52.856Z",
     "updated_at": "2021-03-22T07:57:38.787Z",
+    "project": 1,
     "type": [
       2,
       3,
@@ -145,6 +151,7 @@
     "status": 2,
     "created_at": "2021-03-18T10:13:06.057Z",
     "updated_at": "2021-03-22T08:13:59.412Z",
+    "project": 1,
     "type": [
       3
     ]
@@ -159,6 +166,7 @@
     "status": 3,
     "created_at": "2021-03-18T10:39:20.242Z",
     "updated_at": "2021-03-22T07:55:54.019Z",
+    "project": 1,
     "type": [
       3
     ]
@@ -173,6 +181,7 @@
     "status": 4,
     "created_at": "2021-03-22T08:00:52.413Z",
     "updated_at": "2021-03-22T08:01:37.289Z",
+    "project": 1,
     "type": [
       2
     ]
@@ -187,9 +196,160 @@
     "status": 2,
     "created_at": "2021-03-22T08:41:21.865Z",
     "updated_at": "2021-03-22T08:41:21.865Z",
+    "project": 1,
     "type": [
       1
     ]
+  }
+},
+{
+  "model": "webapp.tracer",
+  "pk": 14,
+  "fields": {
+    "surname": "fdddddd",
+    "description": "fd",
+    "status": 3,
+    "created_at": "2021-03-25T08:48:11.760Z",
+    "updated_at": "2021-03-25T08:48:11.761Z",
+    "project": 1,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.tracer",
+  "pk": 15,
+  "fields": {
+    "surname": "gdfsgs",
+    "description": "dfsgsd",
+    "status": 4,
+    "created_at": "2021-03-25T09:02:35.642Z",
+    "updated_at": "2021-03-25T09:02:35.642Z",
+    "project": 1,
+    "type": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.tracer",
+  "pk": 16,
+  "fields": {
+    "surname": "иулллффф",
+    "description": "фываыва",
+    "status": 3,
+    "created_at": "2021-03-29T10:05:39.275Z",
+    "updated_at": "2021-03-29T10:07:43.384Z",
+    "project": 2,
+    "type": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.tracer",
+  "pk": 17,
+  "fields": {
+    "surname": "сакмннгпми",
+    "description": "о лд ь",
+    "status": 3,
+    "created_at": "2021-03-29T10:06:36.078Z",
+    "updated_at": "2021-03-29T10:06:36.078Z",
+    "project": 2,
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.tracer",
+  "pk": 18,
+  "fields": {
+    "surname": "ывфываывыва",
+    "description": "ыфвафыафывафы",
+    "status": 3,
+    "created_at": "2021-03-29T10:09:35.404Z",
+    "updated_at": "2021-03-29T10:09:35.404Z",
+    "project": 3,
+    "type": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 1,
+  "fields": {
+    "name": "первый проект",
+    "description": "1 project",
+    "start_data": "2021-03-23",
+    "end_data": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 2,
+  "fields": {
+    "name": "dsfsdfssfsd",
+    "description": "sdfs",
+    "start_data": "2019-03-08",
+    "end_data": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 3,
+  "fields": {
+    "name": "4 project",
+    "description": "dasds",
+    "start_data": "2019-09-05",
+    "end_data": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 5,
+  "fields": {
+    "name": "аывафы",
+    "description": "аываыф",
+    "start_data": "2020-03-03",
+    "end_data": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 6,
+  "fields": {
+    "name": "324",
+    "description": "кцук",
+    "start_data": "1022-01-02",
+    "end_data": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 7,
+  "fields": {
+    "name": "апывпвыа",
+    "description": "ваыпывапыв",
+    "start_data": "2019-03-03",
+    "end_data": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 8,
+  "fields": {
+    "name": "ввапатрппроп",
+    "description": "парапрварвапра",
+    "start_data": "2019-03-06",
+    "end_data": null
   }
 },
 {
@@ -197,7 +357,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$216000$OhrVFVMZlo46$m6BOfUzNLzrwY6v4JtZKhXoBT4JbF5JWGo4x4ngw5vM=",
-    "last_login": "2021-03-22T06:26:46.996Z",
+    "last_login": "2021-03-29T08:51:20.301Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
