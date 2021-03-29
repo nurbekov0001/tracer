@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block menu %}<li><a href="{% url "view" tracer.id %}">Вернуться к задаче</a></li>{% endblock menu %}
+{% block page_header %}Редактирвоать задачу {{ tracer.id }}{% endblock page_header %}
+
+{% block content %}
+    <form action="{% url "update" tracer.id %}" method="post">
+        {% include "partial/form.html" with button_text="Редактировать задачу" %}
+    </form>
+{% endblock content %}

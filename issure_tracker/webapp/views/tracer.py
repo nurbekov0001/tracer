@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
-from webapp.models import Tracer, Type, Status
+from webapp.models import Tracer, Type, Status, Project
 from django.views.generic import View, TemplateView, FormView, ListView
-from webapp.forms import TracerForm, TracerDeleteForm , SearchForm
+from django.views.generic import FormView, ListView, CreateView, DetailView
+from webapp.forms import TracerForm, TracerDeleteForm, SearchForm, ProjectTracerForm, ProjectForm
 
 from django.db.models import Q
 from django.utils.http import urlencode
@@ -48,32 +49,70 @@ class IndexView(ListView):
 
 
 
-class TracerView(TemplateView):
-   template_name = 'view.html'
-   def get_context_data(self, **kwargs):
-       context = super().get_context_data(**kwargs)
-       context['tracer'] = get_object_or_404(Tracer, pk=kwargs['pk'])
-       return context
+# class TracerView(TemplateView):
+#    template_name = 'view.html'
+#    def get_context_data(self, **kwargs):
+#        context = super().get_context_data(**kwargs)
+#        context['tracer'] = get_object_or_404(Tracer, pk=kwargs['pk'])
+#        return context
+
+
+class TracerView(DetailView):
+    model = Tracer
+    template_name = 'tracer/view.html'
 
 
 
-class CreateView(View):
-    def get(self, request, *args, **kwargs):
-        form = TracerForm()
-        return render(request, 'create.html', {'form': form})
+# class CreateView(View):
+#     def get(self, request, *args, **kwargs):
+#         form = TracerForm()
+#         return render(request, 'create.html', {'form': form})
+#
+#
+#     def post(self, request, *args, **kwargs):
+#         form = TracerForm(data=request.POST)
+#         if form.is_valid():
+#             tracer = Tracer.objects.create(
+#                 surname=form.cleaned_data.get("surname"),
+#                 description=form.cleaned_data.get("description"),
+#                 status=form.cleaned_data.get("status"),
+#             )
+#             tracer.type.set(form.cleaned_data.get("type"))
+#             return redirect('view', pk=tracer.id)
+#         return render(request, 'create.html', context={'form': form})
+
+class ProjectTracerCreateView(CreateView):
+
+    model = Project
+    template_name = 'project_create.html'
+    form_class = ProjectTracerForm
 
 
-    def post(self, request, *args, **kwargs):
-        form = TracerForm(data=request.POST)
-        if form.is_valid():
-            tracer = Tracer.objects.create(
-                surname=form.cleaned_data.get("surname"),
-                description=form.cleaned_data.get("description"),
-                status=form.cleaned_data.get("status"),
-            )
-            tracer.type.set(form.cleaned_data.get("type"))
-            return redirect('view', pk=tracer.id)
-        return render(request, 'create.html', context={'form': form})
+    def form_valid(self, form):
+        article = get_object_or_404(Article, pk=self.kwargs.get('pk'))
+        comment = form.save(commit=False)
+        comment.article = article
+        comment.save()
+        return redirect('article_view', pk=article.pk)
+
+class CreateArticleView(CreateView):
+    template_name = 'tracer/create.html'
+    form_class = TracerForm
+    model = Tracer
+
+    def form_valid(self, form):
+        status = form.cleaned_data.pop('status')
+        tracer = Tracer()
+        for key, value in form.cleaned_data.items():
+            setattr(tracer, key, value)
+
+        tracer.save()
+        tracer.tags.set(status  )
+
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('article-list')
 
 
 class UpdateView(View):

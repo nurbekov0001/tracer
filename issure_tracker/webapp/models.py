@@ -27,6 +27,8 @@ class Tracer(models.Model):
                                   verbose_name='Тип')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Время изменения')
+    project = models.ForeignKey('webapp.Project', related_name='tracers', on_delete=models.CASCADE,
+                               verbose_name='Проект')
 
     class Meta:
         db_table = 'Tracers'
@@ -35,3 +37,13 @@ class Tracer(models.Model):
 
     def __str__(self):
         return f'{self.id}. {self.surname}:{self.description}{self.status} {self.type}  '
+
+class Project(models.Model):
+
+    start_data = models.DateField(auto_now_add=False, verbose_name='Дата начала')
+    end_data = models.DateField(auto_now_add=False, null=True, blank=True, verbose_name='Дата окончания')
+    name = models.CharField(max_length=100, null=False, blank=False, verbose_name='название')
+    description = models.TextField(max_length=2000,  null=False, blank=False, verbose_name='описание')
+
+    def __str__(self):
+        return f'{self.id}. {self.start_data}:{self.end_data} {self.name} {self.description}  '

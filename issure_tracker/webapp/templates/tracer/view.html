@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block menu %}
+
+    <li><a href="{% url "update" tracer.id %}">Редактировать задачу</a></li>
+    <li><a href="{% url "delete" tracer.id %}">Удалить задачу</a></li>
+{% endblock menu %}
+{% block content %}
+{% block page_header %}Задача {{ tracer.id }}{% endblock page_header %}
+    <p> Name tracer: {{ tracer.surname }}</p>
+    <p>Description: {{ tracer.description}}</p>
+    <p>Status: {{ tracer.status}}</p>
+    <p>Tип: {% for type in tracer.type.all %}{{ type.name }}
+        {% if not forloop.last %}, {% endif %}{% endfor %}</p>
+    <a href="{% url "list" %}">Главная страница</a>
+{% endblock %}

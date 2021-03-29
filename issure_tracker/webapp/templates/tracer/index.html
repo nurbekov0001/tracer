@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h1>Tracer list</h1><br/>
+    {% if not tracers %}
+        <h2>НЕТ ЗАДАЧ</h2>
+    {% else %}
+        {% include "partial/search_form.html" %}
+    {% endif %}
+<br/><br/>
+
+    {% for tracer in tracers %}
+            <p><a href="{% url "view" tracer.id %}"> Название: {{ tracer.surname }}</a><br/>
+                Описание: {{tracer.description  }}<br/>
+                Статус: {{ tracer.status }}<br/>
+          Тип: {% for type in tracer.type.all %}{{ type.name }}
+        {% if not forloop.last %}, {% endif %}{% endfor %}
+        </p>
+
+        <br/>
+    {% endfor %}
+     {% include 'partial/paginate.html' %}
+{% endblock %}
