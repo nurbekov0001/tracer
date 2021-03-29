@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block menu %}<li><a href="{% url "view" project.id %}">Вернуться к проекту</a></li>{% endblock menu %}
+{% block menu %}<li><a href="{% url "project_view" project.id %}">Вернуться к проекту</a></li>{% endblock menu %}
 {% block page_header %}Редактирвоать проект {{ project.id }}{% endblock page_header %}
 
 {% block content %}

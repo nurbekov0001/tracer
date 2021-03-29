@@ -12,5 +12,5 @@
     <p>Status: {{ tracer.status}}</p>
     <p>Tип: {% for type in tracer.type.all %}{{ type.name }}
         {% if not forloop.last %}, {% endif %}{% endfor %}</p>
-    <a href="{% url "list" %}">Главная страница</a>
+    <a href="{% url "project_list" %}">Главная страница </a>
 {% endblock %}
