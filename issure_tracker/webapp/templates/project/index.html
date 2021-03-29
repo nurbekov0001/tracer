@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h1>Tracer list</h1><br/>
+    <h1>Project list</h1><br/>
     {% if not tracers %}
         <h2>НЕТ ЗАДАЧ</h2>
     {% else %}
@@ -9,13 +9,12 @@
     {% endif %}
 <br/><br/>
 
-    {% for tracer in tracers %}
-            <p><a href="{% url "view" tracer.id %}"> Название: {{ tracer.surname }}</a><br/>
-                Описание: {{tracer.description  }}<br/>
-                Статус: {{ tracer.status }}<br/>
-          Тип: {% for type in tracer.type.all %}{{ type.name }}
-        {% if not forloop.last %}, {% endif %}{% endfor %}
-        </p>
+    {% for project in projects %}
+            <p><a href="{% url "project_view" project.pk %}"> Название: {{ project.name }}</a><br/>
+                Описание: {{project.description  }}<br/>
+              Дата на чала проекта {{ project.start_data }}<br/>
+              Дата на конца проекта {{ project.end_data }}<br/>
+
 
         <br/>
     {% endfor %}

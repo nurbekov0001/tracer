@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
-{% block page_header %}Добавить задачу{% endblock page_header %}
+{% block page_header %}Добавить Проект{% endblock page_header %}
 
 {% block content %}
-    <form action="{% url "add" %}" method="post">
-        {% include "tracer_form.html" with button_text="Создать задачу" %}
+    <form action="{% url "project_add" %}" method="post">
+        {% include "partial/form.html" with button_text="Создать Проект" %}
     </form>
 {% endblock content %}

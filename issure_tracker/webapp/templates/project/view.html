@@ -2,15 +2,25 @@
 
 {% block menu %}
 
-    <li><a href="{% url "update" tracer.id %}">Редактировать задачу</a></li>
-    <li><a href="{% url "delete" tracer.id %}">Удалить задачу</a></li>
+{#    <li><a href="{% url "projact_update" tracer.id %}">Редактировать задачу из проекта</a></li>#}
+{#    <li><a href="{% url "project_delete" tracer.id %}">Удалить задачу из проекта </a></li>#}
 {% endblock menu %}
 {% block content %}
-{% block page_header %}Задача {{ tracer.id }}{% endblock page_header %}
-    <p> Name tracer: {{ tracer.surname }}</p>
-    <p>Description: {{ tracer.description}}</p>
-    <p>Status: {{ tracer.status}}</p>
-    <p>Tип: {% for type in tracer.type.all %}{{ type.name }}
+{% block page_header %}Задача {{ project.id }}{% endblock page_header %}
+    <p> Name tracer: {{ project.name }}</p>
+    <p>Description: {{ project.description}}</p>
+    <p>Status: {{ project.start_data}}</p>
+    </br>    </br>
+
+
+    <p>{% for task in project.tracers.all %}
+        Название:<a href="{% url 'view' task.pk %}">{{ task.surname }}</a> <br/>
+        Описание: {{ task.description }}<br/>
+        статус: {{ task.status }}
+
+      <p>Tип: {% for type in task.type.all %}{{ type.name }}
         {% if not forloop.last %}, {% endif %}{% endfor %}</p>
-    <a href="{% url "list" %}">Главная страница</a>
+        <br/><br/>
+        {% endfor %}
+    <a href="{% url "project_list" %}">Главная страница</a>
 {% endblock %}
