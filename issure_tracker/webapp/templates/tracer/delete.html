@@ -5,7 +5,7 @@
 
 {% block content%}
     <form action="{% url "delete" tracer.id %}", method="POST">
-        {% include 'tracer_form.html' with button_text="Да, я хочу удалить этоту запись" %}
+        {% include 'partial/form.html' with button_text="Да, я хочу удалить этоту запись" %}
            <button> <a href="{% url "view" tracer.id %}">Отмена. Код красный. КОД КРАСНЫЙ!!</a> </button>
     </form>
 {% endblock content %}
