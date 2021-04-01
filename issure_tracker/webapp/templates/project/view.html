@@ -7,8 +7,9 @@
         <li><a href="{% url "project_tracer_add" project.id %}">Cоздание задачи </a></li>
 
 {% endblock menu %}
+{% block page_header %}Проект {{ project.id }}{% endblock page_header %}
+
 {% block content %}
-{% block page_header %}Задача {{ project.id }}{% endblock page_header %}
     <p> Name : {{ project.name }}</p>
     <p>Description: {{ project.description}}</p>
     <p>start data: {{ project.start_data}}</p>

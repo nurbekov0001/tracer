@@ -5,8 +5,9 @@
     <li><a href="{% url "update" tracer.id %}">Редактировать задачу</a></li>
     <li><a href="{% url "delete" tracer.id %}">Удалить задачу</a></li>
 {% endblock menu %}
+{% block page_header %}Задачи {{ tracer.id }}{% endblock page_header %}
 {% block content %}
-{% block page_header %}Задача {{ tracer.id }}{% endblock page_header %}
+
     <p> Name tracer: {{ tracer.surname }}</p>
     <p>Description: {{ tracer.description}}</p>
     <p>Status: {{ tracer.status}}</p>
