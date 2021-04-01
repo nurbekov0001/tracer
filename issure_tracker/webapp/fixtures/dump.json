@@ -267,18 +267,64 @@
 },
 {
   "model": "webapp.tracer",
-  "pk": 18,
+  "pk": 26,
   "fields": {
-    "surname": "ывфываывыва",
-    "description": "ыфвафыафывафы",
-    "status": 3,
-    "created_at": "2021-03-29T10:09:35.404Z",
-    "updated_at": "2021-03-29T10:09:35.404Z",
+    "surname": "fdgdfgdfgsdfgd",
+    "description": "dfsgsdgsddfgsdf",
+    "status": 4,
+    "created_at": "2021-04-01T08:21:01.622Z",
+    "updated_at": "2021-04-01T08:38:59.950Z",
     "project": 3,
     "type": [
-      1,
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "webapp.tracer",
+  "pk": 27,
+  "fields": {
+    "surname": "sdfgsdfg",
+    "description": "sdfgsdgd",
+    "status": 4,
+    "created_at": "2021-04-01T08:21:14.934Z",
+    "updated_at": "2021-04-01T08:21:14.934Z",
+    "project": 10,
+    "type": [
       2,
       3
+    ]
+  }
+},
+{
+  "model": "webapp.tracer",
+  "pk": 28,
+  "fields": {
+    "surname": "gfdgdsgdsg",
+    "description": "dfsgsd",
+    "status": 3,
+    "created_at": "2021-04-01T08:35:58.402Z",
+    "updated_at": "2021-04-01T08:35:58.402Z",
+    "project": 3,
+    "type": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.tracer",
+  "pk": 29,
+  "fields": {
+    "surname": "adsfasdfasdafd",
+    "description": "sfsadfsa",
+    "status": 4,
+    "created_at": "2021-04-01T08:36:27.259Z",
+    "updated_at": "2021-04-01T08:36:27.259Z",
+    "project": 13,
+    "type": [
+      3,
+      4
     ]
   }
 },
@@ -324,16 +370,6 @@
 },
 {
   "model": "webapp.project",
-  "pk": 6,
-  "fields": {
-    "name": "324",
-    "description": "кцук",
-    "start_data": "1022-01-02",
-    "end_data": null
-  }
-},
-{
-  "model": "webapp.project",
   "pk": 7,
   "fields": {
     "name": "апывпвыа",
@@ -349,6 +385,46 @@
     "name": "ввапатрппроп",
     "description": "парапрварвапра",
     "start_data": "2019-03-06",
+    "end_data": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 9,
+  "fields": {
+    "name": "выаываыв",
+    "description": "выаываыв",
+    "start_data": "2021-05-09",
+    "end_data": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 10,
+  "fields": {
+    "name": "bekaff",
+    "description": "gdfdfgdffdfsf33",
+    "start_data": "2019-02-03",
+    "end_data": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 12,
+  "fields": {
+    "name": "dsfasdf",
+    "description": "dsafasfsa",
+    "start_data": "2021-03-03",
+    "end_data": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 13,
+  "fields": {
+    "name": "sjfdsfsd1111",
+    "description": "agfdfdg",
+    "start_data": "2021-03-04",
     "end_data": null
   }
 },

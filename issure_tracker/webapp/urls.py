@@ -2,8 +2,8 @@ from django.urls import path
 from webapp.views import (
     IndexView,
     TracerView,
-    UpdateView,
-    DeleteView,
+    TracerDeleteView,
+    TracerUpdateView,
     ProjectTracerCreate,
     ProjectCreateView,
     ProjectIndexView,
@@ -15,8 +15,8 @@ from webapp.views import (
 urlpatterns = [
     path('tracers/', IndexView.as_view(), name='list'),
     path('<int:pk>/', TracerView.as_view(), name='view'),
-    path('<int:pk>/update/', UpdateView.as_view(), name='update'),
-    path('<int:pk>/delete/', DeleteView.as_view(), name='delete'),
+    path('<int:pk>/update/', TracerUpdateView.as_view(), name='update'),
+    path('<int:pk>/delete/', TracerDeleteView.as_view(), name='delete'),
 
     path('project/add/', ProjectCreateView.as_view(), name='project_add'),
     path('project_tracer/<int:pk>/add/', ProjectTracerCreate.as_view(), name='project_tracer_add'),
