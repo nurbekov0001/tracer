@@ -1,5 +1,6 @@
-from django.views.generic import CreateView, DetailView, ListView, View
+from django.views.generic import CreateView, DetailView, ListView, View, UpdateView, DeleteView
 from webapp.models import Project, Tracer
+from django.urls import reverse_lazy
 from webapp.forms import ProjectForm, TracerForm, SearchForm, ProjectDeleteForm
 from django.shortcuts import get_object_or_404, redirect, reverse, render
 from django.db.models import Q
@@ -77,48 +78,63 @@ class ProjectView(DetailView):
     context_object_name = 'project'
 
 
-class ProjectUpdateView(View):
-    def get(self, request, **kwargs):
-        project = get_object_or_404(Project, pk=kwargs['pk'])
-        form = ProjectForm(initial={
-            'name': project.name,
-            'description': project.description,
-            'start_data': project.start_data,
-            'end_data': project.end_data
+# class ProjectUpdateView(View):
+#     def get(self, request, **kwargs):
+#         project = get_object_or_404(Project, pk=kwargs['pk'])
+#         form = ProjectForm(initial={
+#             'name': project.name,
+#             'description': project.description,
+#             'start_data': project.start_data,
+#             'end_data': project.end_data
+#
+#         })
+#         return render(request, 'project/update.html', context={'form': form, 'project': project})
+#
+#     def post(self, request, **kwargs):
+#         project = get_object_or_404(Project, pk=kwargs['pk'])
+#         form = ProjectForm(data=request.POST)
+#         if form.is_valid():
+#             project.name = form.cleaned_data.get("name")
+#             project.description = form.cleaned_data.get("description")
+#             project.start_data = form.cleaned_data.get("start_data")
+#             project.end_data = form.cleaned_data.get("end_data")
+#             project.save()
+#             return redirect('project_view', pk=project.id)
+#         return render(request, 'project/update.html', context={'form': form, 'project': project})
 
-        })
-        return render(request, 'project/update.html', context={'form': form, 'project': project})
+class ProjectUpdateView(UpdateView):
+    model = Project
+    template_name = 'project/update.html'
+    form_class = ProjectForm
+    context_object_name = 'project'
 
-    def post(self, request, **kwargs):
-        project = get_object_or_404(Project, pk=kwargs['pk'])
-        form = ProjectForm(data=request.POST)
-        if form.is_valid():
-            project.name = form.cleaned_data.get("name")
-            project.description = form.cleaned_data.get("description")
-            project.start_data = form.cleaned_data.get("start_data")
-            project.end_data = form.cleaned_data.get("end_data")
-            project.save()
-            return redirect('project_view', pk=project.id)
-        return render(request, 'project/update.html', context={'form': form, 'project': project})
+    def get_success_url(self):
+        return reverse('project_view', kwargs={'pk': self.object.pk})
+
+# class ProjectDeleteView(View):
+#     def get(self, request, **kwargs):
+#         project = get_object_or_404(Project, pk=kwargs['pk'])
+#         form = ProjectDeleteForm()
+#         return render(request, 'project/delete.html', context={'project': project, 'form': form})
+#
+#     def post(self, request, **kwargs):
+#         project = get_object_or_404(Project, pk=kwargs['pk'])
+#         form = ProjectDeleteForm(data=request.POST)
+#         if form.is_valid():
+#             if form.cleaned_data['name'] != project.name:
+#                 form.errors['name'] = ['Названия записи не совпадают']
+#                 return render(request, 'project/delete.html', context={'project': project, 'form': form})
+#             project.delete()
+#             return redirect('project_list')
+#         return render(request, 'project/delete.html', context={'project': project, 'form': form})
 
 
-class ProjectDeleteView(View):
-    def get(self, request, **kwargs):
-        project = get_object_or_404(Project, pk=kwargs['pk'])
-        form = ProjectDeleteForm()
-        return render(request, 'project/delete.html', context={'project': project, 'form': form})
+class ProjectDeleteView(DeleteView):
 
-    def post(self, request, **kwargs):
-        project = get_object_or_404(Project, pk=kwargs['pk'])
-        form = ProjectDeleteForm(data=request.POST)
-        if form.is_valid():
-            if form.cleaned_data['name'] != project.name:
-                form.errors['name'] = ['Названия записи не совпадают']
-                return render(request, 'project/delete.html', context={'project': project, 'form': form})
-            project.delete()
-            return redirect('project_list')
-        return render(request, 'project/delete.html', context={'project': project, 'form': form})
-
+    template_name = 'project/delete.html'
+    model = Project
+    context_object_name = 'project'
+    success_url = reverse_lazy('project_list')
 
 
 
