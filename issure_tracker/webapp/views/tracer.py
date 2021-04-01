@@ -132,13 +132,13 @@ class UpdateView(UpdateView):
 #         return render(request, 'tracer/delete.html', context={'tracer': tracer, 'form': form})
 
 class DeleteView(DeleteView):
+    template_name = 'tracer/delete.html'
     model = Tracer
-
-    def get(self, request, *args, **kwargs):
-        return self.delete(request, *args, **kwargs)
+    context_object_name = 'tracer'
 
     def get_success_url(self):
-        return reverse('view', kwargs={'pk': self.object.pk})
+        return reverse('project_view', kwargs={'pk': self.object.project.pk})
+
 
 
 
