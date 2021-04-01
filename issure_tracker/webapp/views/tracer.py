@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from webapp.models import Tracer, Project
 from django.views.generic import View
-from django.views.generic import ListView, CreateView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from webapp.forms import TracerForm, TracerDeleteForm, SearchForm, ProjectForm
 
 from django.db.models import Q
@@ -80,47 +80,66 @@ class ProjectTracerCreate(CreateView):
         return redirect('view', pk=project.pk)
 
 
-class UpdateView(View):
-    def get(self, request, **kwargs):
-        tracer = get_object_or_404(Tracer, pk=kwargs['pk'])
-        form = TracerForm(initial={
-            'surname': tracer.surname,
-            'description': tracer.description,
-            'status': tracer.status,
-            'type': tracer.type.all(),
+# class UpdateView(View):
+#     def get(self, request, **kwargs):
+#         tracer = get_object_or_404(Tracer, pk=kwargs['pk'])
+#         form = TracerForm(initial={
+#             'surname': tracer.surname,
+#             'description': tracer.description,
+#             'status': tracer.status,
+#             'type': tracer.type.all(),
+#
+#         })
+#         return render(request, 'tracer/update.html', context={'form': form, 'tracer': tracer})
 
-        })
-        return render(request, 'tracer/update.html', context={'form': form, 'tracer': tracer})
+    # def post(self, request, **kwargs):
+    #     tracer = get_object_or_404(Tracer, pk=kwargs['pk'])
+    #     form = TracerForm(data=request.POST)
+    #     if form.is_valid():
+    #         tracer.surname = form.cleaned_data.get("surname")
+    #         tracer.description = form.cleaned_data.get("description")
+    #         tracer.status = form.cleaned_data.get("status")
+    #         tracer.type.set(form.cleaned_data.get("type"))
+    #         tracer.save()
+    #         return redirect('view', pk=tracer.id)
+    #     return render(request, 'tracer/update.html', context={'form': form, 'tracer': tracer})
 
-    def post(self, request, **kwargs):
-        tracer = get_object_or_404(Tracer, pk=kwargs['pk'])
-        form = TracerForm(data=request.POST)
-        if form.is_valid():
-            tracer.surname = form.cleaned_data.get("surname")
-            tracer.description = form.cleaned_data.get("description")
-            tracer.status = form.cleaned_data.get("status")
-            tracer.type.set(form.cleaned_data.get("type"))
-            tracer.save()
-            return redirect('view', pk=tracer.id)
-        return render(request, 'tracer/update.html', context={'form': form, 'tracer': tracer})
+class UpdateView(UpdateView):
+    model = Tracer
+    template_name = 'tracer/update.html'
+    form_class = TracerForm
+    context_object_name = 'tracer'
+
+    def get_success_url(self):
+        return reverse('view', kwargs={'pk': self.object.pk})
 
 
-class DeleteView(View):
-    def get(self, request, **kwargs):
-        tracer = get_object_or_404(Tracer, pk=kwargs['pk'])
-        form = TracerDeleteForm()
-        return render(request, 'tracer/delete.html', context={'tracer': tracer, 'form': form})
+# class DeleteView(View):
+#     def get(self, request, **kwargs):
+#         tracer = get_object_or_404(Tracer, pk=kwargs['pk'])
+#         form = TracerDeleteForm()
+#         return render(request, 'tracer/delete.html', context={'tracer': tracer, 'form': form})
+#
+#     def post(self, request, **kwargs):
+#         tracer = get_object_or_404(Tracer, pk=kwargs['pk'])
+#         form = TracerDeleteForm(data=request.POST)
+#         if form.is_valid():
+#             if form.cleaned_data['surname'] != tracer.surname:
+#                 form.errors['surname'] = ['Названия записи не совпадают']
+#                 return render(request, 'tracer/delete.html', context={'tracer': tracer, 'form': form})
+#             tracer.delete()
+#             return redirect('list')
+#         return render(request, 'tracer/delete.html', context={'tracer': tracer, 'form': form})
 
-    def post(self, request, **kwargs):
-        tracer = get_object_or_404(Tracer, pk=kwargs['pk'])
-        form = TracerDeleteForm(data=request.POST)
-        if form.is_valid():
-            if form.cleaned_data['surname'] != tracer.surname:
-                form.errors['surname'] = ['Названия записи не совпадают']
-                return render(request, 'tracer/delete.html', context={'tracer': tracer, 'form': form})
-            tracer.delete()
-            return redirect('list')
-        return render(request, 'tracer/delete.html', context={'tracer': tracer, 'form': form})
+class DeleteView(DeleteView):
+    model = Tracer
+
+    def get(self, request, *args, **kwargs):
+        return self.delete(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse('view', kwargs={'pk': self.object.pk})
+
 
 
 
