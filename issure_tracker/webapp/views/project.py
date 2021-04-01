@@ -26,7 +26,7 @@ class ProjectIndexView(ListView):
 
         if self.search_data:
             queryset = queryset.filter(
-                Q(surname__icontains=self.search_data) |
+                Q(name__icontains=self.search_data) |
                 Q(description__icontains=self.search_data)
             )
         return queryset
@@ -78,30 +78,6 @@ class ProjectView(DetailView):
     context_object_name = 'project'
 
 
-# class ProjectUpdateView(View):
-#     def get(self, request, **kwargs):
-#         project = get_object_or_404(Project, pk=kwargs['pk'])
-#         form = ProjectForm(initial={
-#             'name': project.name,
-#             'description': project.description,
-#             'start_data': project.start_data,
-#             'end_data': project.end_data
-#
-#         })
-#         return render(request, 'project/update.html', context={'form': form, 'project': project})
-#
-#     def post(self, request, **kwargs):
-#         project = get_object_or_404(Project, pk=kwargs['pk'])
-#         form = ProjectForm(data=request.POST)
-#         if form.is_valid():
-#             project.name = form.cleaned_data.get("name")
-#             project.description = form.cleaned_data.get("description")
-#             project.start_data = form.cleaned_data.get("start_data")
-#             project.end_data = form.cleaned_data.get("end_data")
-#             project.save()
-#             return redirect('project_view', pk=project.id)
-#         return render(request, 'project/update.html', context={'form': form, 'project': project})
-
 class ProjectUpdateView(UpdateView):
     model = Project
     template_name = 'project/update.html'
@@ -110,23 +86,6 @@ class ProjectUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('project_view', kwargs={'pk': self.object.pk})
-
-# class ProjectDeleteView(View):
-#     def get(self, request, **kwargs):
-#         project = get_object_or_404(Project, pk=kwargs['pk'])
-#         form = ProjectDeleteForm()
-#         return render(request, 'project/delete.html', context={'project': project, 'form': form})
-#
-#     def post(self, request, **kwargs):
-#         project = get_object_or_404(Project, pk=kwargs['pk'])
-#         form = ProjectDeleteForm(data=request.POST)
-#         if form.is_valid():
-#             if form.cleaned_data['name'] != project.name:
-#                 form.errors['name'] = ['Названия записи не совпадают']
-#                 return render(request, 'project/delete.html', context={'project': project, 'form': form})
-#             project.delete()
-#             return redirect('project_list')
-#         return render(request, 'project/delete.html', context={'project': project, 'form': form})
 
 
 class ProjectDeleteView(DeleteView):

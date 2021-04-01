@@ -1,9 +1,8 @@
 from webapp.views.tracer import (
     IndexView,
     TracerView,
-    CreateView,
-    UpdateView,
-    DeleteView
+    TracerUpdateView,
+    TracerDeleteView
 )
 from webapp.views.project import(
     ProjectCreateView,
