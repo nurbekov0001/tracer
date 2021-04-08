@@ -352,7 +352,7 @@
   "model": "webapp.project",
   "pk": 3,
   "fields": {
-    "name": "4 project",
+    "name": "3 project",
     "description": "dasds",
     "start_data": "2019-09-05",
     "end_data": null
