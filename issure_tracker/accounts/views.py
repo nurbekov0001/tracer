@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.http import request
+from django.contrib.auth import login, authenticate, logout
 
 def login_view(request):
     context = {}
@@ -9,8 +10,12 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('article_index')
+            return redirect('project_list')
         else:
             context['has_error'] = True
     return render(request, 'login.html', context=context)
 
+
+def logout_view(request):
+    logout(request)
+    return redirect('project_list')
