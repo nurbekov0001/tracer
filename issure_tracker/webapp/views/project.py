@@ -5,7 +5,7 @@ from webapp.forms import ProjectForm, TracerForm, SearchForm, ProjectDeleteForm
 from django.shortcuts import get_object_or_404, redirect, reverse, render
 from django.db.models import Q
 from django.utils.http import urlencode
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class ProjectIndexView(ListView):
 
@@ -46,7 +46,7 @@ class ProjectIndexView(ListView):
         return context
 
 
-class ProjectCreateView(CreateView):
+class ProjectCreateView(LoginRequiredMixin, CreateView):
 
     template_name = 'tracer/create.html'
     model = Project
@@ -58,7 +58,7 @@ class ProjectCreateView(CreateView):
         return reverse('project_view', kwargs={'pk': self.object.pk})
 
 
-class ProjectTracerCreate(CreateView):
+class ProjectTracerCreate(LoginRequiredMixin, CreateView):
     model = Tracer
     template_name = 'tracer/create.html'
     form_class = TracerForm
@@ -78,7 +78,7 @@ class ProjectView(DetailView):
     context_object_name = 'project'
 
 
-class ProjectUpdateView(UpdateView):
+class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     model = Project
     template_name = 'project/update.html'
     form_class = ProjectForm
@@ -88,7 +88,7 @@ class ProjectUpdateView(UpdateView):
         return reverse('project_view', kwargs={'pk': self.object.pk})
 
 
-class ProjectDeleteView(DeleteView):
+class ProjectDeleteView(LoginRequiredMixin, DeleteView):
 
     template_name = 'project/delete.html'
     model = Project

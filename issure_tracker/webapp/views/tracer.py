@@ -3,6 +3,7 @@ from django.urls import reverse
 from webapp.models import Tracer
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from webapp.forms import TracerForm, SearchForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.db.models import Q
 from django.utils.http import urlencode
@@ -55,7 +56,7 @@ class TracerView(DetailView):
 
 
 
-class TracerUpdateView(UpdateView):
+class TracerUpdateView(LoginRequiredMixin, UpdateView):
     model = Tracer
     template_name = 'tracer/update.html'
     form_class = TracerForm
@@ -66,7 +67,7 @@ class TracerUpdateView(UpdateView):
 
 
 
-class TracerDeleteView(DeleteView):
+class TracerDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'tracer/delete.html'
     model = Tracer
     context_object_name = 'tracer'
