@@ -1,9 +1,5 @@
-{% extends 'base.html' %}
-
-{% block page_header %}Добавить Проект{% endblock page_header %}
-
-{% block content %}
-    <form action="{% url "project_add" %}" method="post">
-        {% include "partial/form.html" with button_text="Создать Проект" %}
-    </form>
+{% extends 'base.html' %} {% block page_header %}Добавить Проект{% endblock page_header %} {% block content %}
+<form action="{% url "project:project_add" %}" method="post">
+    {% include "partial/form.html" with button_text="Создать Проект" %}
+</form>
 {% endblock content %}

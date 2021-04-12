@@ -1,18 +1,12 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block menu %}
 
-{% block menu %}
+<li><a href="{% url "project:update" tracer.id %}">Редактировать задачу</a></li>
+<li><a href="{% url "project:delete" tracer.id %}">Удалить задачу</a></li>
+{% endblock menu %} {% block page_header %}Задачи {{ tracer.id }}{% endblock page_header %} {% block content %}
 
-    <li><a href="{% url "update" tracer.id %}">Редактировать задачу</a></li>
-    <li><a href="{% url "delete" tracer.id %}">Удалить задачу</a></li>
-{% endblock menu %}
-{% block page_header %}Задачи {{ tracer.id }}{% endblock page_header %}
-{% block content %}
+<p> Name tracer: {{ tracer.surname }}</p>
+<p>Description: {{ tracer.description}}</p>
+<p>Status: {{ tracer.status}}</p>
 
-    <p> Name tracer: {{ tracer.surname }}</p>
-    <p>Description: {{ tracer.description}}</p>
-    <p>Status: {{ tracer.status}}</p>
-
-    <p>Tип: {% for type in tracer.type.all %}{{ type.name }}
-        {% if not forloop.last %}, {% endif %}{% endfor %}</p>
-    <a href="{% url "project_list" %}">Главная страница </a>
-{% endblock %}
+<p>Tип: {% for type in tracer.type.all %}{{ type.name }} {% if not forloop.last %}, {% endif %}{% endfor %}</p>
+<a href="{% url "project:project_list" %}">Главная страница </a> {% endblock %}

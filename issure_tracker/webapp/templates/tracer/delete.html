@@ -1,11 +1,6 @@
-{% extends 'base.html' %}
-
-{% block title %}Подтвердите удаление задачи{% endblock %}
-{% block page_header %}Вы уверены, что хотите удалить задачу {{ tracer.surname }}?{% endblock page_header %}
-
-{% block content%}
-    <form action="{% url "delete" tracer.id %}" method="POST">
-        {% include 'partial/form.html' with button_text="Да, я хочу удалить этоту запись" %}
-           <button> <a href="{% url "view" tracer.id %}">Отмена!</a> </button>
-    </form>
+{% extends 'base.html' %} {% block title %}Подтвердите удаление задачи{% endblock %} {% block page_header %}Вы уверены, что хотите удалить задачу {{ tracer.surname }}?{% endblock page_header %} {% block content%}
+<form action="{% url "project:delete" tracer.id %}" method="POST">
+    {% include 'partial/form.html' with button_text="Да, я хочу удалить этоту запись" %}
+    <button> <a href="{% url "project:view" tracer.id %}">Отмена!</a> </button>
+</form>
 {% endblock content %}

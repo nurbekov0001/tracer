@@ -1,11 +1,7 @@
-{% extends 'base.html' %}
-
-{% block title %}Подтвердите удаление проекта{% endblock %}
-{% block page_header %}Вы уверены, что хотите удалить проект {{ project.name }}?{% endblock page_header %}
-
-{% block content%}
-    <form action="{% url "project_delete" project.id %}", method="POST">
-        {% include 'partial/form.html' with button_text="Да, я хочу удалить этот проект" %}
-           <button> <a href="{% url "project_view" project.id %}">Отмена!</a> </button>
-    </form>
+{% extends 'base.html' %} {% block title %}Подтвердите удаление проекта{% endblock %} {% block page_header %}
+    Вы уверены, что хотите удалить проект {{ project.name }}?{% endblock page_header %} {% block content%}
+<form action="{% url "project:project_delete" project.id %}", method="POST">
+    {% include 'partial/form.html' with button_text="Да, я хочу удалить этот проект" %}
+    <button> <a href="{% url "project:project_view" project.id %}">Отмена!</a> </button>
+</form>
 {% endblock content %}

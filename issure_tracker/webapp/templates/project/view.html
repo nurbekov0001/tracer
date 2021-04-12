@@ -1,30 +1,22 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block menu %}
 
-{% block menu %}
+<li><a href="{% url "project:project_update" project.id %}">Редактировать проекта</a></li>
+<li><a href="{% url "project:project_delete" project.id %}">Удалить  проек </a></li>
+<li><a href="{% url "project:project_tracer_add" project.id %}">Cоздание задачи </a></li>
 
-    <li><a href="{% url "project_update" project.id %}">Редактировать проекта</a></li>
-    <li><a href="{% url "project_delete" project.id %}">Удалить  проек </a></li>
-        <li><a href="{% url "project_tracer_add" project.id %}">Cоздание задачи </a></li>
-
-{% endblock menu %}
-{% block page_header %}Проект {{ project.id }}{% endblock page_header %}
-
-{% block content %}
-    <p> Name : {{ project.name }}</p>
-    <p>Description: {{ project.description}}</p>
-    <p>start data: {{ project.start_data}}</p>
-     <p>end data: {{ project.end_data}}</p>
-    </br>    </br>
+{% endblock menu %} {% block page_header %}Проект {{ project.id }}{% endblock page_header %} {% block content %}
+<p> Name : {{ project.name }}</p>
+<p>Description: {{ project.description}}</p>
+<p>start data: {{ project.start_data}}</p>
+<p>end data: {{ project.end_data}}</p>
+</br>
+</br>
 
 
-    <p>{% for task in project.tracers.all %}
-        Название:<a href="{% url 'view' task.pk %}">{{ task.surname }}</a> <br/>
-        Описание: {{ task.description }}<br/>
-        статус: {{ task.status }}
+<p>{% for task in project.tracers.all %} Название:
+    <a href="{% url 'project:view' task.pk %}">{{ task.surname }}</a> <br/> Описание: {{ task.description }}
+    <br/> статус: {{ task.status }}
 
-      <p>Tип: {% for type in task.type.all %}{{ type.name }}
-        {% if not forloop.last %}, {% endif %}{% endfor %}</p>
-        <br/><br/>
-        {% endfor %}
-    <a href="{% url "project_list" %}">Главная страница</a>
-{% endblock %}
+    <p>Tип: {% for type in task.type.all %}{{ type.name }} {% if not forloop.last %}, {% endif %}{% endfor %}</p>
+    <br/><br/> {% endfor %}
+    <a href="{% url "project:project_list" %}">Главная страница</a> {% endblock %}
