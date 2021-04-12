@@ -17,15 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
 
-from accounts.views import login_view, logout_view
+# from accounts.views import login_view, logout_view
 HOMEPAGE_URL = 'project/'
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('project/', include('webapp.urls')),
-    path('accounts/login/', login_view, name='login'),
-    path('accounts/logout/', logout_view, name='logout'),
+    path('accounts/', include('accounts.urls')),
     path('', RedirectView.as_view(url=HOMEPAGE_URL, permanent=False)),
 
 ]

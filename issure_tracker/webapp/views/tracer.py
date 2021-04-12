@@ -63,7 +63,7 @@ class TracerUpdateView(LoginRequiredMixin, UpdateView):
     context_object_name = 'tracer'
 
     def get_success_url(self):
-        return reverse('view', kwargs={'pk': self.object.pk})
+        return reverse('project:view', kwargs={'pk': self.object.pk})
 
 
 
@@ -73,7 +73,7 @@ class TracerDeleteView(LoginRequiredMixin, DeleteView):
     context_object_name = 'tracer'
 
     def get_success_url(self):
-        return reverse('project_view', kwargs={'pk': self.object.project.pk})
+        return reverse('project:project_view', kwargs={'pk': self.object.project.pk})
 
 
 

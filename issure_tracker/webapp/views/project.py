@@ -55,7 +55,7 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
 
-        return reverse('project_view', kwargs={'pk': self.object.pk})
+        return reverse('project:project_view', kwargs={'pk': self.object.pk})
 
 
 class ProjectTracerCreate(LoginRequiredMixin, CreateView):
@@ -69,7 +69,7 @@ class ProjectTracerCreate(LoginRequiredMixin, CreateView):
         tracer.project = project
         tracer.save()
         form.save_m2m()
-        return redirect('project_view', pk=project.pk)
+        return redirect('project:project_view', pk=project.pk)
 
 
 class ProjectView(DetailView):
@@ -85,7 +85,7 @@ class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     context_object_name = 'project'
 
     def get_success_url(self):
-        return reverse('project_view', kwargs={'pk': self.object.pk})
+        return reverse('project:project_view', kwargs={'pk': self.object.pk})
 
 
 class ProjectDeleteView(LoginRequiredMixin, DeleteView):
@@ -93,7 +93,7 @@ class ProjectDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'project/delete.html'
     model = Project
     context_object_name = 'project'
-    success_url = reverse_lazy('project_list')
+    success_url = reverse_lazy('project:project_list')
 
 
 

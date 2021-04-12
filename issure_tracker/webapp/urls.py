@@ -12,6 +12,8 @@ from webapp.views import (
     ProjectUpdateView
 )
 
+app_name = 'project'
+
 urlpatterns = [
     path('tracers/', IndexView.as_view(), name='list'),
     path('<int:pk>/', TracerView.as_view(), name='view'),
