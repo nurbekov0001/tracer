@@ -1,5 +1,7 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from webapp.validator import ErrorValidator, Validator
+
 
 
 class Status(models.Model):
@@ -44,7 +46,12 @@ class Project(models.Model):
     description = models.TextField(max_length=2000,  null=False, blank=False, verbose_name='описание')
     start_data = models.DateField(auto_now_add=False, verbose_name='Дата начала')
     end_data = models.DateField(auto_now_add=False, null=True, blank=True, verbose_name='Дата окончания')
-
+    author = models.ManyToManyField(get_user_model(), default=1, related_name="projects",
+                                    verbose_name='Автор')
+    class Meta:
+        permissions = [
+            ('add_delete_change', 'добавлять,удалять,изменять')
+        ]
 
     def __str__(self):
-        return f'{self.id}.{self.name} {self.description} {self.start_data}:{self.end_data} '
+        return f'{self.id}.{self.name} {self.description} {self.start_data}:{self.end_data},{self.author} '
