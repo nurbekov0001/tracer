@@ -116,7 +116,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$216000$OhrVFVMZlo46$m6BOfUzNLzrwY6v4JtZKhXoBT4JbF5JWGo4x4ngw5vM=",
-    "last_login": "2021-04-15T10:47:29.331Z",
+    "last_login": "2021-04-15T11:10:36.585Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -134,7 +134,7 @@
   "pk": 14,
   "fields": {
     "password": "pbkdf2_sha256$216000$R7jVdcUvWs0R$jkceAU9AKZvVdMSQ231F/H9F1d/6RhlnSxT3chgHTa0=",
-    "last_login": "2021-04-15T10:48:06.256Z",
+    "last_login": "2021-04-15T11:11:19.188Z",
     "is_superuser": false,
     "username": "manager",
     "first_name": "Beka",
@@ -148,43 +148,7 @@
         "Менеджер проекта"
       ]
     ],
-    "user_permissions": [
-      [
-        "add_delete_change",
-        "webapp",
-        "project"
-      ],
-      [
-        "add_project",
-        "webapp",
-        "project"
-      ],
-      [
-        "change_project",
-        "webapp",
-        "project"
-      ],
-      [
-        "delete_project",
-        "webapp",
-        "project"
-      ],
-      [
-        "add_tracer",
-        "webapp",
-        "tracer"
-      ],
-      [
-        "change_tracer",
-        "webapp",
-        "tracer"
-      ],
-      [
-        "delete_tracer",
-        "webapp",
-        "tracer"
-      ]
-    ]
+    "user_permissions": []
   }
 },
 {
@@ -192,7 +156,7 @@
   "pk": 15,
   "fields": {
     "password": "pbkdf2_sha256$216000$G9dOCEwErwrn$MZucVu6y4Nn2scC+/X58Hqi7YbJ3etA0Cl1GMUvaazs=",
-    "last_login": "2021-04-14T13:59:11.917Z",
+    "last_login": "2021-04-14T13:59:11Z",
     "is_superuser": false,
     "username": "lead",
     "first_name": "lead",
@@ -206,43 +170,7 @@
         "Капитан"
       ]
     ],
-    "user_permissions": [
-      [
-        "add_delete_change",
-        "webapp",
-        "project"
-      ],
-      [
-        "add_project",
-        "webapp",
-        "project"
-      ],
-      [
-        "change_project",
-        "webapp",
-        "project"
-      ],
-      [
-        "delete_project",
-        "webapp",
-        "project"
-      ],
-      [
-        "add_tracer",
-        "webapp",
-        "tracer"
-      ],
-      [
-        "change_tracer",
-        "webapp",
-        "tracer"
-      ],
-      [
-        "delete_tracer",
-        "webapp",
-        "tracer"
-      ]
-    ]
+    "user_permissions": []
   }
 },
 {
@@ -264,23 +192,7 @@
         "Разработчик"
       ]
     ],
-    "user_permissions": [
-      [
-        "add_delete_change",
-        "webapp",
-        "project"
-      ],
-      [
-        "add_tracer",
-        "webapp",
-        "tracer"
-      ],
-      [
-        "change_tracer",
-        "webapp",
-        "tracer"
-      ]
-    ]
+    "user_permissions": []
   }
 }
 ]
