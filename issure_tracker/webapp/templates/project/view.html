@@ -11,7 +11,7 @@
     <li><a href="{% url "project:project_tracer_add" project.id %}"> Создание задачи </a></li>
 {% endif %}
 
-{% if perms.webapp.add_delete_change %}
+{% if perms.webapp.add_delete_change and request.user in project.user.all %}
     <li><a href="{% url "project:user_update" project.id %}"> Создание пользователя </a></li>
 {% endif %}
 
