@@ -1,8 +1,15 @@
 {% extends "base.html" %} {% block menu %}
 
+    {% if perms.webapp.change_tracer and request.user in project.user.all %}
 <li><a href="{% url "project:update" tracer.id %}">Редактировать задачу</a></li>
+{% endif %}
+
+        {% if perms.webapp.delete_tracer and request.user in project.user.all %}
 <li><a href="{% url "project:delete" tracer.id %}">Удалить задачу</a></li>
-{% endblock menu %} {% block page_header %}Задачи {{ tracer.id }}{% endblock page_header %} {% block content %}
+{% endif %}
+
+{% endblock menu %}
+{% block page_header %}Задачи {{ tracer.id }}{% endblock page_header %} {% block content %}
 
 <p> Name tracer: {{ tracer.surname }}</p>
 <p>Description: {{ tracer.description}}</p>
