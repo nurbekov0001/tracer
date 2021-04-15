@@ -12,3 +12,6 @@ from webapp.views.project import(
     ProjectDeleteView,
     ProjectUpdateView
 )
+from webapp.views.author import (
+    UserUpdateView
+)

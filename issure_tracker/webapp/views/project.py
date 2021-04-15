@@ -72,6 +72,10 @@ class ProjectTracerCreate(PermissionRequiredMixin, CreateView):
         form.save_m2m()
         return redirect('project:project_view', pk=project.pk)
 
+    def has_permission(self):
+        return super().has_permission() and self.request.user in Project.objects.get(
+            pk=self.kwargs.get('pk')).user.all()
+
 
 class ProjectView(DetailView):
     model = Project
