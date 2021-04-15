@@ -1,5 +1,4 @@
 {% extends "base.html" %} {% block menu %}
-
 {% if perms.webapp.change_project and request.user in project.user.all %}
      <p><a href="{% url 'project:project_update' project.pk %}">Редактировать проекта</a></p>
 {% endif %}
@@ -15,6 +14,8 @@
     <li><a href="{% url "project:user_update" project.id %}"> Создание пользователя </a></li>
 {% endif %}
 
+
+
 {% endblock menu %} {% block page_header %}Проект {{ project.id }}{% endblock page_header %} {% block content %}
 <p> Name : {{ project.name }}</p>
 <p>Description: {{ project.description}}</p>
@@ -23,10 +24,9 @@
 </br>
 <p>Users <br/>
 {% for i in project.user.all %}
-    <p>{{ i }} </p><br/>
-
+    <p>{{ i }} </p>
 {% endfor %}
-</p></br>
+</p>
 </br>
 
 <p>{% for task in project.tracers.all %} Название:
