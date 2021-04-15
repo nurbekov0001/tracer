@@ -1,10 +1,122 @@
 [
 {
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Менеджер проекта",
+    "permissions": [
+      [
+        "add_delete_change",
+        "webapp",
+        "project"
+      ],
+      [
+        "add_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "change_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "delete_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "add_tracer",
+        "webapp",
+        "tracer"
+      ],
+      [
+        "change_tracer",
+        "webapp",
+        "tracer"
+      ],
+      [
+        "delete_tracer",
+        "webapp",
+        "tracer"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 3,
+  "fields": {
+    "name": "Капитан",
+    "permissions": [
+      [
+        "add_delete_change",
+        "webapp",
+        "project"
+      ],
+      [
+        "add_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "change_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "delete_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "add_tracer",
+        "webapp",
+        "tracer"
+      ],
+      [
+        "change_tracer",
+        "webapp",
+        "tracer"
+      ],
+      [
+        "delete_tracer",
+        "webapp",
+        "tracer"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 4,
+  "fields": {
+    "name": "Разработчик",
+    "permissions": [
+      [
+        "add_delete_change",
+        "webapp",
+        "project"
+      ],
+      [
+        "add_tracer",
+        "webapp",
+        "tracer"
+      ],
+      [
+        "change_tracer",
+        "webapp",
+        "tracer"
+      ]
+    ]
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$216000$OhrVFVMZlo46$m6BOfUzNLzrwY6v4JtZKhXoBT4JbF5JWGo4x4ngw5vM=",
-    "last_login": "2021-04-08T10:10:08.192Z",
+    "last_login": "2021-04-15T10:47:29.331Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -15,6 +127,160 @@
     "date_joined": "2021-03-09T10:13:41.181Z",
     "groups": [],
     "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$R7jVdcUvWs0R$jkceAU9AKZvVdMSQ231F/H9F1d/6RhlnSxT3chgHTa0=",
+    "last_login": "2021-04-15T10:48:06.256Z",
+    "is_superuser": false,
+    "username": "manager",
+    "first_name": "Beka",
+    "last_name": "",
+    "email": "beka@beka.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-04-14T13:43:11Z",
+    "groups": [
+      [
+        "Менеджер проекта"
+      ]
+    ],
+    "user_permissions": [
+      [
+        "add_delete_change",
+        "webapp",
+        "project"
+      ],
+      [
+        "add_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "change_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "delete_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "add_tracer",
+        "webapp",
+        "tracer"
+      ],
+      [
+        "change_tracer",
+        "webapp",
+        "tracer"
+      ],
+      [
+        "delete_tracer",
+        "webapp",
+        "tracer"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 15,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$G9dOCEwErwrn$MZucVu6y4Nn2scC+/X58Hqi7YbJ3etA0Cl1GMUvaazs=",
+    "last_login": "2021-04-14T13:59:11.917Z",
+    "is_superuser": false,
+    "username": "lead",
+    "first_name": "lead",
+    "last_name": "",
+    "email": "lead@lead.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-04-14T13:46:27Z",
+    "groups": [
+      [
+        "Капитан"
+      ]
+    ],
+    "user_permissions": [
+      [
+        "add_delete_change",
+        "webapp",
+        "project"
+      ],
+      [
+        "add_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "change_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "delete_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "add_tracer",
+        "webapp",
+        "tracer"
+      ],
+      [
+        "change_tracer",
+        "webapp",
+        "tracer"
+      ],
+      [
+        "delete_tracer",
+        "webapp",
+        "tracer"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 16,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$cMPqisfJq0Uk$M4us1SjYe0IMTXHAg+33f7BLAtV0ISvX7VTVry35GYQ=",
+    "last_login": "2021-04-15T08:30:11Z",
+    "is_superuser": false,
+    "username": "dev",
+    "first_name": "dev",
+    "last_name": "",
+    "email": "dev@dev.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-04-14T13:47:18Z",
+    "groups": [
+      [
+        "Разработчик"
+      ]
+    ],
+    "user_permissions": [
+      [
+        "add_delete_change",
+        "webapp",
+        "project"
+      ],
+      [
+        "add_tracer",
+        "webapp",
+        "tracer"
+      ],
+      [
+        "change_tracer",
+        "webapp",
+        "tracer"
+      ]
+    ]
   }
 }
 ]
