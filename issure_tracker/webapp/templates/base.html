@@ -14,6 +14,9 @@
         <ul class="menu">
 
             <li><a href="{% url "project:project_list" %}">Все проекты</a></li>
+            {% if perms.webapp.add_project %}
+        <li><a href="{% url "project:project_add"  %}">Создать  проек </a></li>
+{% endif %}
 
 
             {% if user.is_authenticated %} {% block menu_links %}{% endblock %}

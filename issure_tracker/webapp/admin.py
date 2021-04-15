@@ -8,14 +8,15 @@ class TracersAdmin(admin.ModelAdmin):
     fields = ['surname', 'description', 'status', 'project']
 
 
-class ProjectAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'description', 'start_data', 'end_data']
-    list_filter = ['name']
-    fields = ['name', 'description']
+# class ProjectAdmin(admin.ModelAdmin):
+#     list_display = ['id', 'name', 'description', 'start_data', 'end_data']
+#     list_filter = ['name']
+#     fields = ['name', 'description']
 
 
 admin.site.register(Tracer, TracersAdmin)
 admin.site.register(Type)
 admin.site.register(Status)
-admin.site.register(Project, ProjectAdmin)
+
+admin.site.register(Project)
 # Register your models here.

@@ -9,7 +9,8 @@ from webapp.views import (
     ProjectIndexView,
     ProjectView,
     ProjectDeleteView,
-    ProjectUpdateView
+    ProjectUpdateView,
+    UserUpdateView
 )
 
 app_name = 'project'
@@ -19,6 +20,8 @@ urlpatterns = [
     path('<int:pk>/', TracerView.as_view(), name='view'),
     path('<int:pk>/update/', TracerUpdateView.as_view(), name='update'),
     path('<int:pk>/delete/', TracerDeleteView.as_view(), name='delete'),
+
+    path('user/<int:pk>', UserUpdateView.as_view(), name="user_update"),
 
     path('project/add/', ProjectCreateView.as_view(), name='project_add'),
     path('project_tracer/<int:pk>/add/', ProjectTracerCreate.as_view(), name='project_tracer_add'),

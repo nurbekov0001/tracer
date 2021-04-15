@@ -94,11 +94,6 @@
     "name": "Разработчик",
     "permissions": [
       [
-        "add_delete_change",
-        "webapp",
-        "project"
-      ],
-      [
         "add_tracer",
         "webapp",
         "tracer"
@@ -116,7 +111,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$216000$OhrVFVMZlo46$m6BOfUzNLzrwY6v4JtZKhXoBT4JbF5JWGo4x4ngw5vM=",
-    "last_login": "2021-04-15T11:10:36.585Z",
+    "last_login": "2021-04-15T11:22:48.677Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -178,7 +173,7 @@
   "pk": 16,
   "fields": {
     "password": "pbkdf2_sha256$216000$cMPqisfJq0Uk$M4us1SjYe0IMTXHAg+33f7BLAtV0ISvX7VTVry35GYQ=",
-    "last_login": "2021-04-15T08:30:11Z",
+    "last_login": "2021-04-15T11:24:15.996Z",
     "is_superuser": false,
     "username": "dev",
     "first_name": "dev",

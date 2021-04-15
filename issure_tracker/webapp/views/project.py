@@ -53,7 +53,6 @@ class ProjectCreateView(PermissionRequiredMixin, CreateView):
     form_class = ProjectForm
     permission_required = 'webapp.add_project'
 
-
     def get_success_url(self):
         return reverse('project:project_view', kwargs={'pk': self.object.pk})
 
@@ -62,7 +61,7 @@ class ProjectTracerCreate(PermissionRequiredMixin, CreateView):
     model = Tracer
     template_name = 'tracer/create.html'
     form_class = TracerForm
-    permission_required = 'webapp.add_tracker'
+    permission_required = 'webapp.add_tracer'
 
     def form_valid(self, form):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
