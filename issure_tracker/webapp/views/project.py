@@ -5,8 +5,8 @@ from webapp.forms import ProjectForm, TracerForm, SearchForm, ProjectDeleteForm
 from django.shortcuts import get_object_or_404, redirect, reverse, render
 from django.db.models import Q
 from django.utils.http import urlencode
-from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.core.exceptions import PermissionDenied
 class ProjectIndexView(ListView):
 
     template_name = 'project/index.html'
@@ -46,22 +46,23 @@ class ProjectIndexView(ListView):
         return context
 
 
-class ProjectCreateView(LoginRequiredMixin, CreateView):
+class ProjectCreateView(PermissionRequiredMixin, CreateView):
 
     template_name = 'tracer/create.html'
     model = Project
     form_class = ProjectForm
+    permission_required = 'webapp.add_project'
 
 
     def get_success_url(self):
-
         return reverse('project:project_view', kwargs={'pk': self.object.pk})
 
 
-class ProjectTracerCreate(LoginRequiredMixin, CreateView):
+class ProjectTracerCreate(PermissionRequiredMixin, CreateView):
     model = Tracer
     template_name = 'tracer/create.html'
     form_class = TracerForm
+    permission_required = 'webapp.add_tracker'
 
     def form_valid(self, form):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
@@ -78,21 +79,23 @@ class ProjectView(DetailView):
     context_object_name = 'project'
 
 
-class ProjectUpdateView(LoginRequiredMixin, UpdateView):
+class ProjectUpdateView(PermissionRequiredMixin, UpdateView):
     model = Project
     template_name = 'project/update.html'
     form_class = ProjectForm
     context_object_name = 'project'
+    permission_required = 'webapp.change_project'
 
     def get_success_url(self):
         return reverse('project:project_view', kwargs={'pk': self.object.pk})
 
 
-class ProjectDeleteView(LoginRequiredMixin, DeleteView):
+class ProjectDeleteView(PermissionRequiredMixin, DeleteView):
 
     template_name = 'project/delete.html'
     model = Project
     context_object_name = 'project'
+    permission_required = 'webapp.delete_project'
     success_url = reverse_lazy('project:project_list')
 
 
