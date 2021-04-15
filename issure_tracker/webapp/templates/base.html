@@ -12,8 +12,10 @@
 <body>
     <nav class="navbar">
         <ul class="menu">
+
             <li><a href="{% url "project:project_list" %}">Все проекты</a></li>
-            <li><a href="{% url "project:project_add" %}">Создать Проект</a></li>
+
+
             {% if user.is_authenticated %} {% block menu_links %}{% endblock %}
             <li class="menu-right"><a href="{% url 'accounts:logout' %}?next={{request.get_full_path}}"
                                       class="nav-link">Выход</a></li>

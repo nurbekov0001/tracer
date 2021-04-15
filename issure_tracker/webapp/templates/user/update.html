@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %} {% block menu %}
+<li><a href="{% url "project:project_view" project.id %}">Вернуться к проекту</a></li>{% endblock menu %}
+{% block content %}
+<form action="{% url "project:user_update" project.id %}" method="post">
+    {% include "partial/form.html" with button_text="Редактировать этого пользователя" %}
+</form>
+{% endblock content %}
