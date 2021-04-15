@@ -4,13 +4,12 @@ from webapp.models import Tracer
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from webapp.forms import TracerForm, SearchForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.db.models import Q
 from django.utils.http import urlencode
 
 
 class IndexView(ListView):
-
     template_name = 'tracer/index.html'
     model = Tracer
     context_object_name = 'tracers'
@@ -48,34 +47,33 @@ class IndexView(ListView):
         return context
 
 
-
 class TracerView(DetailView):
     model = Tracer
     template_name = 'tracer/view.html'
 
 
-
-
-class TracerUpdateView(LoginRequiredMixin, UpdateView):
+class TracerUpdateView(PermissionRequiredMixin, UpdateView):
     model = Tracer
     template_name = 'tracer/update.html'
     form_class = TracerForm
     context_object_name = 'tracer'
+    permission_required = 'webapp.change_tracer'
+
+    def has_permission(self):
+        return self.request.user in self.get_object().project.user.all() and super().has_permission()
 
     def get_success_url(self):
         return reverse('project:view', kwargs={'pk': self.object.pk})
 
 
-
-class TracerDeleteView(LoginRequiredMixin, DeleteView):
+class TracerDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'tracer/delete.html'
     model = Tracer
     context_object_name = 'tracer'
+    permission_required = 'webapp.delete_tracer'
+
+    def has_permission(self):
+        return self.request.user in self.get_object().project.user.all() and super().has_permission()
 
     def get_success_url(self):
         return reverse('project:project_view', kwargs={'pk': self.object.project.pk})
-
-
-
-
-
