@@ -1,8 +1,19 @@
 {% extends "base.html" %} {% block menu %}
 
-<li><a href="{% url "project:project_update" project.id %}">Редактировать проекта</a></li>
-<li><a href="{% url "project:project_delete" project.id %}">Удалить  проек </a></li>
-<li><a href="{% url "project:project_tracer_add" project.id %}">Cоздание задачи </a></li>
+{% if perms.webapp.change_project and request.user in project.user.all %}
+     <p><a href="{% url 'project:project_update' project.pk %}">Редактировать проекта</a></p>
+{% endif %}
+{% if perms.webapp.delete_project and request.user in project.user.all %}
+        <li><a href="{% url "project:project_delete" project.id %}">Удалить  проек </a></li>
+{% endif %}
+
+{% if perms.webapp.add_tracer and request.user in project.user.all %}
+    <li><a href="{% url "project:project_tracer_add" project.id %}"> Создание задачи </a></li>
+{% endif %}
+
+{% if perms.webapp.add_delete_change and request.user in project.user.all %}
+    <li><a href="{% url "project:user_update" project.id %}"> Создание пользователя </a></li>
+{% endif %}
 
 {% endblock menu %} {% block page_header %}Проект {{ project.id }}{% endblock page_header %} {% block content %}
 <p> Name : {{ project.name }}</p>
@@ -10,8 +21,13 @@
 <p>start data: {{ project.start_data}}</p>
 <p>end data: {{ project.end_data}}</p>
 </br>
-</br>
+<p>Users <br/>
+{% for i in project.user.all %}
+    <p>{{ i }} </p><br/>
 
+{% endfor %}
+</p></br>
+</br>
 
 <p>{% for task in project.tracers.all %} Название:
     <a href="{% url 'project:view' task.pk %}">{{ task.surname }}</a> <br/> Описание: {{ task.description }}
