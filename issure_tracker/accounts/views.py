@@ -6,6 +6,14 @@ from django.contrib.auth.models import User
 from django.views.generic import CreateView
 from django.urls import reverse
 
+from django.views.generic import DetailView
+
+from django.contrib.auth import get_user_model
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+from django.core.paginator import Paginator
+
 
 def login_view(request):
     context = {}
