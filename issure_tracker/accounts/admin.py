@@ -3,11 +3,10 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth import get_user_model
 
 from .models import Profile
-# Register your models here.
 
 class ProfileInline(admin.StackedInline):
    model = Profile
-   fields = ['bird_date', 'user', 'avatar', 'link', 'description']
+   fields = ['birth_date', 'user', 'avatar', 'link', 'description']
 
 
 class ProfileAdmin(UserAdmin):
