@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block menu %}
 {% if perms.webapp.change_project  %}
-     <p><a href="{% url 'project:project_update' project.pk %}">Редактировать проекта</a></p>
+     <li><a href="{% url 'project:project_update' project.pk %}">Редактировать проекта</a></li>
 {% endif %}
 
 {% if perms.webapp.delete_project  %}
@@ -12,8 +12,9 @@
 {% endif %}
 
 {% if perms.webapp.add_delete_change and request.user in project.user.all %}
-    <li><a href="{% url "project:user_update" project.id %}"> Создание пользователя </a></li>
+    <li><a href="{% url "project:user_update" project.id %}"> Добавление пользователя </a></li>
 {% endif %}
+
 
 
 

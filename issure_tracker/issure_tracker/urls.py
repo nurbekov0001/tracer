@@ -21,7 +21,6 @@ from django.views.generic import RedirectView
 
 HOMEPAGE_URL = 'project/'
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('project/', include('webapp.urls')),

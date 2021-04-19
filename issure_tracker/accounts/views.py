@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from .forms import MyUserCreationForm
 from django.contrib.auth import login, authenticate, logout
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 from django.contrib.auth import get_user_model
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.paginator import Paginator
 
 
@@ -54,3 +54,12 @@ class UserDetailView(LoginRequiredMixin, DetailView):
         kwargs['projects'] = page.object_list
         kwargs['is_paginate'] = page.has_other_pages()
         return super().get_context_data(**kwargs)
+
+
+class UserView(PermissionRequiredMixin, ListView):
+    model = get_user_model()
+    template_name = 'user_list.html'
+    context_object_name = 'users'
+    permission_required = 'accounts.view_users'
+
+
