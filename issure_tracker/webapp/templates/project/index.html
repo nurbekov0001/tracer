@@ -1,12 +1,8 @@
-{% extends "base.html" %} {% block content %}
-
+{% extends "base.html" %}
+{% block content %}
 <h1>Project list</h1><br/> {% if not projects %}
 <h2>НЕТ ЗАДАЧ</h2>
 {% else %} {% include "partial/search_form.html" %} {% endif %}
-<br/><br/> {% for project in projects %}
-<p><a href="{% url "project:project_view" project.pk %}"> Название: {{ project.name }}</a><br/>
-        Описание: {{project.description }}<br/> Дата на чала проекта {{ project.start_data }}<br/>
-        Дата на конца проекта {{ project.end_data }}<br/>
-
-
-    <br/> {% endfor %} {% include 'partial/paginate.html' %} {% endblock %}
+{% include 'partial/product_lists.html' %}
+{% include 'partial/paginate.html' %}
+{% endblock %}

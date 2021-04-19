@@ -1,0 +1,15 @@
+{% for project in projects %}
+    <div class="box">
+        <h3><a href="{% url "project:project_view" project.pk %}">{{ project.name }}</a></h3>
+             Описание: {{project.description }}<br/> Дата на чала проекта {{ project.start_data }}<br/>
+            Дата на конца проекта {{ project.end_data }}<br/><br/>
+    </div>
+
+{% empty %}
+    <h2 class="text-center">Нет проектов </h2>
+{% endfor %}
+
+{% if is_paginate %}
+     {% include 'partial/paginate.html' %}
+{% endif %}
+

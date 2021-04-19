@@ -22,13 +22,14 @@
 <p>Description: {{ project.description}}</p>
 <p>start data: {{ project.start_data}}</p>
 <p>end data: {{ project.end_data}}</p>
-</br>
-<p>Users <br/>
+
+Users
+    <br/>
+    <br/>
 {% for i in project.user.all %}
-    <p>{{ i }} </p>
+    <a href="{% url 'accounts:detail' i.pk %}">{{ i }} </a> </br>
 {% endfor %}
-</p>
-</br>
+
 
 <p>{% for task in project.tracers.all %} Название:
     <a href="{% url 'project:view' task.pk %}">{{ task.surname }}</a> <br/> Описание: {{ task.description }}
