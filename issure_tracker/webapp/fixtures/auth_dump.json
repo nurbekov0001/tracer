@@ -6,6 +6,11 @@
     "name": "Менеджер проекта",
     "permissions": [
       [
+        "View_users",
+        "accounts",
+        "profile"
+      ],
+      [
         "add_delete_change",
         "webapp",
         "project"
@@ -49,6 +54,11 @@
   "fields": {
     "name": "Капитан",
     "permissions": [
+      [
+        "View_users",
+        "accounts",
+        "profile"
+      ],
       [
         "add_delete_change",
         "webapp",
@@ -111,7 +121,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$216000$OhrVFVMZlo46$m6BOfUzNLzrwY6v4JtZKhXoBT4JbF5JWGo4x4ngw5vM=",
-    "last_login": "2021-04-15T11:22:48.677Z",
+    "last_login": "2021-04-19T11:51:00.562Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -129,7 +139,7 @@
   "pk": 14,
   "fields": {
     "password": "pbkdf2_sha256$216000$R7jVdcUvWs0R$jkceAU9AKZvVdMSQ231F/H9F1d/6RhlnSxT3chgHTa0=",
-    "last_login": "2021-04-15T11:11:19.188Z",
+    "last_login": "2021-04-19T11:41:16.856Z",
     "is_superuser": false,
     "username": "manager",
     "first_name": "Beka",
@@ -151,11 +161,11 @@
   "pk": 15,
   "fields": {
     "password": "pbkdf2_sha256$216000$G9dOCEwErwrn$MZucVu6y4Nn2scC+/X58Hqi7YbJ3etA0Cl1GMUvaazs=",
-    "last_login": "2021-04-14T13:59:11Z",
+    "last_login": "2021-04-15T12:27:12Z",
     "is_superuser": false,
     "username": "lead",
     "first_name": "lead",
-    "last_name": "",
+    "last_name": "панда",
     "email": "lead@lead.ru",
     "is_staff": true,
     "is_active": true,
@@ -173,7 +183,7 @@
   "pk": 16,
   "fields": {
     "password": "pbkdf2_sha256$216000$cMPqisfJq0Uk$M4us1SjYe0IMTXHAg+33f7BLAtV0ISvX7VTVry35GYQ=",
-    "last_login": "2021-04-15T11:24:15.996Z",
+    "last_login": "2021-04-19T11:03:07Z",
     "is_superuser": false,
     "username": "dev",
     "first_name": "dev",
@@ -187,6 +197,42 @@
         "Разработчик"
       ]
     ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 17,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$PseSMm68RqNQ$jNIHZLQIMV47XaIZyvwQdURlwZFOIhxjH+92qwHw1tM=",
+    "last_login": "2021-04-15T11:34:15.668Z",
+    "is_superuser": false,
+    "username": "bekaaa",
+    "first_name": "adsas",
+    "last_name": "",
+    "email": "asda@asda.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-04-15T11:34:15.225Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 18,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$zLS7ZhlGUxkk$MCOU9m+ocvdStG8xHmwNWJFvwsqg+M1yqMsQ1MzVwHk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "beka",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-04-16T13:16:07Z",
+    "groups": [],
     "user_permissions": []
   }
 }
