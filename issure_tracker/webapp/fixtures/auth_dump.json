@@ -120,16 +120,16 @@
   "model": "auth.user",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$216000$OhrVFVMZlo46$m6BOfUzNLzrwY6v4JtZKhXoBT4JbF5JWGo4x4ngw5vM=",
-    "last_login": "2021-04-19T11:51:00.562Z",
+    "password": "pbkdf2_sha256$216000$0x1izp3YUWw3$uBt1xJ5M3nOHgW76E+qPLd8pwlqJDBNtUeA0X7g74+Q=",
+    "last_login": "2021-04-21T12:22:21.157Z",
     "is_superuser": true,
     "username": "admin",
-    "first_name": "",
-    "last_name": "",
+    "first_name": "admin",
+    "last_name": "bekasd",
     "email": "admin@admin.com",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2021-03-09T10:13:41.181Z",
+    "date_joined": "2021-03-09T10:13:41Z",
     "groups": [],
     "user_permissions": []
   }
@@ -139,11 +139,11 @@
   "pk": 14,
   "fields": {
     "password": "pbkdf2_sha256$216000$R7jVdcUvWs0R$jkceAU9AKZvVdMSQ231F/H9F1d/6RhlnSxT3chgHTa0=",
-    "last_login": "2021-04-19T11:41:16.856Z",
+    "last_login": "2021-04-21T12:51:23.510Z",
     "is_superuser": false,
     "username": "manager",
-    "first_name": "Beka",
-    "last_name": "",
+    "first_name": "Bekaa",
+    "last_name": "Bekbolot",
     "email": "beka@beka.ru",
     "is_staff": true,
     "is_active": true,
@@ -161,7 +161,7 @@
   "pk": 15,
   "fields": {
     "password": "pbkdf2_sha256$216000$G9dOCEwErwrn$MZucVu6y4Nn2scC+/X58Hqi7YbJ3etA0Cl1GMUvaazs=",
-    "last_login": "2021-04-15T12:27:12Z",
+    "last_login": "2021-04-21T13:09:08.844Z",
     "is_superuser": false,
     "username": "lead",
     "first_name": "lead",
@@ -187,7 +187,7 @@
     "is_superuser": false,
     "username": "dev",
     "first_name": "dev",
-    "last_name": "",
+    "last_name": "DEV",
     "email": "dev@dev.ru",
     "is_staff": true,
     "is_active": true,
@@ -197,42 +197,6 @@
         "Разработчик"
       ]
     ],
-    "user_permissions": []
-  }
-},
-{
-  "model": "auth.user",
-  "pk": 17,
-  "fields": {
-    "password": "pbkdf2_sha256$216000$PseSMm68RqNQ$jNIHZLQIMV47XaIZyvwQdURlwZFOIhxjH+92qwHw1tM=",
-    "last_login": "2021-04-15T11:34:15.668Z",
-    "is_superuser": false,
-    "username": "bekaaa",
-    "first_name": "adsas",
-    "last_name": "",
-    "email": "asda@asda.ru",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2021-04-15T11:34:15.225Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "auth.user",
-  "pk": 18,
-  "fields": {
-    "password": "pbkdf2_sha256$216000$zLS7ZhlGUxkk$MCOU9m+ocvdStG8xHmwNWJFvwsqg+M1yqMsQ1MzVwHk=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "beka",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2021-04-16T13:16:07Z",
-    "groups": [],
     "user_permissions": []
   }
 }

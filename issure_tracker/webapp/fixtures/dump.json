@@ -430,9 +430,7 @@
     "description": "dsafasfsa",
     "start_data": "2021-03-03",
     "end_data": null,
-    "user": [
-      17
-    ]
+    "user": []
   }
 },
 {
@@ -453,17 +451,6 @@
 },
 {
   "model": "accounts.profile",
-  "pk": 1,
-  "fields": {
-    "user": 18,
-    "birth_date": "2021-04-16",
-    "link": "https://www.google.com/search?q=%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D1%87%D0%B8%D0%BA&oq=gth&aqs=chrome.2.69i59j35i19i39j69i1i10i59i433j0i1i10l5j46i1i10j0i1i10.2657j0j7&sourceid=chrome&ie=UTF-8",
-    "avatar": "",
-    "description": "dsfasdfasdfasdf"
-  }
-},
-{
-  "model": "accounts.profile",
   "pk": 2,
   "fields": {
     "user": 14,
@@ -480,7 +467,7 @@
     "user": 15,
     "birth_date": "2021-04-19",
     "link": "https://www.youtube.com/watch?v=Al1EEnhe6MI",
-    "avatar": "user_pics/unnamed_1_FH6egSm.jpg",
+    "avatar": "user_pics/unnamed_1_Zr5qGxS.jpg",
     "description": "Вот вам легенда о Кунг-фу Панде!\r\n\r\nЛапшичный панда вырос,\r\nОн известности и славы не ждал.\r\nВсе муки вынес,\r\nЛучшим воином дракона он стал!\r\n\r\nОу! А! Йа! Кунг-фу Панда!\r\n\r\nМастер Шифу видел воина ясно,\r\nИ стиль огранил его потрясный и классный!\r\nКунг-фу Панда!\r\n\r\nВ свирепой пятерке зверей смелый панда живет,\r\nХранит долину и еще, еще вам песню поет!\r\n\r\nОу! А! Йа! Кунг-фу Панда!\r\nЛегенды Потрясности! Класс!"
   }
 },
@@ -493,6 +480,17 @@
     "link": "https://www.google.com/search?q=%D0%BF%D1%80%D0%B8%D0%BA%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5+%D1%84%D0%BE%D1%82%D0%BE+%D0%BA%D0%BE%D1%88%D0%B5%D0%BA&sxsrf=ALeKk00SCF6IIsGpRolmkmjULA-WpiWkhg:1618831138",
     "avatar": "user_pics/hqdefault.jpg",
     "description": "я готов"
+  }
+},
+{
+  "model": "accounts.profile",
+  "pk": 6,
+  "fields": {
+    "user": 1,
+    "birth_date": "2021-04-21",
+    "link": null,
+    "avatar": "user_pics/Снимок_экрана_от_2021-03-23_16-50-01.png",
+    "description": "asdfasd"
   }
 }
 ]
