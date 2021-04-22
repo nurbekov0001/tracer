@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
+from accounts.models import Profile
 from .forms import MyUserCreationForm, ProfileChangeForm, PasswordChangeForm
 from django.contrib.auth import login, authenticate, logout
 from django.views.generic import DetailView, ListView, UpdateView
@@ -34,6 +35,7 @@ def register_view(request, *args, **kwargs):
         form = MyUserCreationForm(data=request.POST)
         if form.is_valid():
             user = form.save()
+            Profile.objects.create(user=user)
             login(request, user)
             return redirect('project:project_list')
     else:
